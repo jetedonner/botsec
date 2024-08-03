@@ -6,84 +6,70 @@
  * @license    MIT License <https://opensource.org/license/mit>
  */
 
-$botsecDefinitionScript = "botsec.def.php";
-require($botsecDefinitionScript);
-
-$redirectLocation = "https://www.google.com/";
-$agent = "NOTSET";
-
-// $agentsToDeny = [
-//     'feed',
-//     'Unknown robot identified by bot\*',
-//     'AhrefsBot',
-//     'DotBot',
-//     'empty user agent string',
-//     'MJ12bot',
-//     'Barkrowler',
-//     'bingbot',
-//     //'Googlebot',
-//     'nbot',
-//     //'Mediapartners-Google',
-//     'Go-http-client',
-//     'SemrushBot',
-//     //'Applebot',
-//     //'Firefox version 10 and lower - various robots',
-//     'facebookexternalhit',
-//     'robot',
-//     'Yandex ( catchall )',
-//     //'Googlebot-Image',
-//     'link',
-//     'CCBot',
-//     'crawl',
-//     'YandexBot',
-//     'zoominfobot',
-//     'Baidu ( catchall )',
-//     'Curl',
-//     'Apache-HttpClient',
-//     'SeznamBot',
-//     'spider',
-//     'YisouSpider',
-//     'YandexImages',
-//     '360Spider',
-//     'Baiduspider',
-//     'Mail.RU Bot',
-//     'MojeekBot',
-//     'Dalvik',
-//     '2345Explorer',
-//     'SurdotlyBot',
-//     'trendiction',
-//     'survey',
-//     'CFNetwork',
-//     'Unknown robot identified by \*bot',
-//     'yacybot',
-//     'Screaming Frog SEO Spider',
-//     'Wget',
-//     'Seobility',
-//     'libwww-perl',
-//     'Validator.nu',
-//     'BLEXBot',
-//     'yak-linkfluence',
-//     'blog',
-// ];
-
-
-if(isset($_SERVER['HTTP_USER_AGENT'])){
-   $agent = $_SERVER['HTTP_USER_AGENT'];
-}
-
-// print($agent);
-
-if(in_array($agent, $agentsToDeny)){ //preg_match('/^Googlebot/i',$agent)){
-   http_response_code(301);
-   header("HTTP/1.1 302 Moved Temporary");
-   header("Location: $redirectLocation");
-   exit;
-}
+$agentsToDeny = array_unique([
+    '',
+    'empty user agent string',
+    '*',
+    'bot\*',
+    'bot\\*',
+    'feed',
+    'Go-http-client',
+    'Unknown robot identified by bot\*',
+    'Unknown robot identified by bot\\*',
+    'AhrefsBot',
+    'DotBot',
+    'empty user agent string',
+    'MJ12bot',
+    'Barkrowler',
+    'bingbot',
+    //'Googlebot',
+    'nbot',
+    //'Mediapartners-Google',
+    'Go-http-client',
+    'SemrushBot',
+    //'Applebot',
+    //'Firefox version 10 and lower - various robots',
+    'facebookexternalhit',
+    'robot',
+    'Yandex ( catchall )',
+    //'Googlebot-Image',
+    'link',
+    'CCBot',
+    'crawl',
+    'YandexBot',
+    'zoominfobot',
+    'Baidu ( catchall )',
+    'Curl',
+    'Apache-HttpClient',
+    'SeznamBot',
+    'spider',
+    'YisouSpider',
+    'YandexImages',
+    '360Spider',
+    'Baiduspider',
+    'Mail.RU Bot',
+    'MojeekBot',
+    'Dalvik',
+    '2345Explorer',
+    'SurdotlyBot',
+    'trendiction',
+    'survey',
+    'CFNetwork',
+    'Unknown robot identified by \*bot',
+    'yacybot',
+    'Screaming Frog SEO Spider',
+    'Wget',
+    'Seobility',
+    'libwww-perl',
+    'Validator.nu',
+    'BLEXBot',
+    'yak-linkfluence',
+    'blog',
+]);
 
 /*
 
 SOME MORE BOTS AND SPIDERS ....
-
 
 ABCdatos BotLink
 Acme.Spider
