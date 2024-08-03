@@ -33,3 +33,7 @@ You can test the botsec.php script with your own User-Agents like so:
 	2. In the developer console click the three dots in the upper right corner
 	3. Click on "More Tools" > "Network Conditions"
 	4. In the bottom panel you should see the User-Agent and you can chnge it
+
+## Version history of **BotSec**
+- 0.0.1 - 2024-07-29<br>Initial version with user-agents for personal usage
+- 0.0.2 - 2024-08-03<br>Exracted user-agent array from **botsec.php** into **botsec.def.php** file for easier Update. Extended demo index.php script (Styling / Layout, Github-Link, Version history)
