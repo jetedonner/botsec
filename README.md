@@ -22,13 +22,19 @@ This is an example usage of the "botsec.php" script. It'll redirect you to https
 ## Testing the script
 You can test the botsec.php script with your own User-Agents like so:
 
+### Setup BotSec Script
 1. Copy the files to a directory of your choice
-2. Amend the User-Agents array $agentsToDeny in <?= $botsecScript ?> with you own
-3. Goto the directory containing the files in a terminal
-4. Execute "php -S 127.0.0.1:8888" in the terminal
-5. Open the address "127.0.0.1:8888" with your Webbrowser of choice
-6. Now you should see the success message
-7. With Google Chrome you can amend the User-Agent for the Request like so
+2. Amend the config.php file and:
+	1. Set whether to load agents2ignore from URL or botsec.def.php
+	2. Amend the User-Agents array $agentsToDeny in botsec.def.php or at URL-File with you own User-Agents
+3. Include botsec.php in your index.php or other startup PHP-scripts that will be loaded for the requests in question
+
+### Test BotSec locally
+1. Goto the directory containing the files in a terminal
+2. Execute "php -S 127.0.0.1:8888" in the terminal
+3. Open the address "127.0.0.1:8888" with your Webbrowser of choice
+4. Now you should see the success message
+5. With Google Chrome you can amend the User-Agent for the Request like so
 	1. Open the developer console of Google Chrome with CMD+Option+J
 	2. In the developer console click the three dots in the upper right corner
 	3. Click on "More Tools" > "Network Conditions"
@@ -37,3 +43,4 @@ You can test the botsec.php script with your own User-Agents like so:
 ## Version history of **BotSec**
 - 0.0.1 - 2024-07-29<br>Initial version with user-agents for personal usage
 - 0.0.2 - 2024-08-03<br>Exracted user-agent array from **botsec.php** into **botsec.def.php** file for easier Update. Extended demo index.php script (Styling / Layout, Github-Link, Version history)
+- 0.0.3 - 2024-08-05<br>Added ability to load user-agents from URL / file like https://server.com/bots2ignore.txt for easier Update
