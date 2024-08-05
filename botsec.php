@@ -36,7 +36,7 @@ if($loadFromURL){
 // print($agent);
 
 if(in_array($agent, $agentsToDeny)){ //preg_match('/^Googlebot/i',$agent)){
-   http_response_code(301);
+   http_response_code(302);
    header("HTTP/1.1 302 Moved Temporary");
    header("Location: $redirectLocation");
    exit;
